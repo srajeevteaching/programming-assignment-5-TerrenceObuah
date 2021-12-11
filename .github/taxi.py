@@ -5,17 +5,13 @@ import csv
 def read_file(file_name):
     all_data = []
 
-    # open file named filename for reading
 
     try:
         file = open(file_name, "r")
 
         for line in file:
-            # it loops through all the lines and the files that we just opened
             temp = line.split(",")
-            # temp is now a list separated
             all_data.append(temp)
-            # add a list to the overall list
 
         file.close()
     except:
@@ -24,26 +20,6 @@ def read_file(file_name):
     return all_data
 
 
-# each line contains this information in this order
-# Taxi's id number 0
-# Date and time of the start of the trip in month/day/year hour:minute format 1
-# Date and time of the end of the trip in month/day/year hour:minute format 2
-# Duration of trip in seconds 3
-# Distance of the trip in miles 4
-# Cost of the trip 5
-# Payment type ("Cash" or "Credit Card") 6
-# Taxi company 7
-# Pickup location latitude (-90 to 90) 8
-# Pickup location longitude (-180 to 180) 9
-# Dropoff location latitude (-90 to 90) 10
-# Dropoff location longitude (-180 to 180) 11
-
-# Output the average cost for cash and (separately) credit card payments
-# Output the count of all trips that started or ended on a user-given date.
-
-# Output to a file (name provided by the user)
-# the information for all trips with a pickup or dropoff location that is within a given distance of a given location.
-# formula distance = arccos(sin(lat1) * sin(lat2) + cos(lat1) * cos(lat2) * cos(lon1 - lon2)) * 3,959 miles
 
 def distance(lat2, long2, lat1, long1):
     distance = (
